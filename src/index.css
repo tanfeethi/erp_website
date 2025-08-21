@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@900;700&display=swap");
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'DINNextArabic';
+  src: url('/fonts/DINNextLTArabic-Regular-3.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+  --font-cairo: "Cairo", sans-serif;
+  --font-din: "DINNextArabic", sans-serif;
+}
+
+html {
+  font-family: var(--font-din) !important;
+}
