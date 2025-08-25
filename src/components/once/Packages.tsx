@@ -41,118 +41,104 @@ const Packages = () => {
     const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("monthly");
 
     return (
-        <WrapperContainer>
-            <div className="py-20 text-right">
-                <Header
-                    title="نظام JEC ERP يمنحك السيطرة الكاملة على أعمالك من أي مكان وفي أي وقت، مع واجهة استخدام عصرية، أدوات متكاملة، ودعم مستمر يساعدك على تحقيق أهدافك بكفاءة وسلاسة."
-                    description="حيث تلتقي التقنية بالكفاءة -"
-                    subtitle="JEC ERP "
-                />
+        <div className="border border-t-0 border-b-[#E2E2E2]">
+            <WrapperContainer>
+                <div className="py-20 text-right">
+                    <Header
+                        title="نظام JEC ERP يمنحك السيطرة الكاملة على أعمالك من أي مكان وفي أي وقت، مع واجهة استخدام عصرية، أدوات متكاملة، ودعم مستمر يساعدك على تحقيق أهدافك بكفاءة وسلاسة."
+                        description="حيث تلتقي التقنية بالكفاءة -"
+                        subtitle="JEC ERP "
+                    />
 
-                <div className="flex justify-center my-6 gap-2 text-sm rounded-full border border-[#13476D] w-max mx-auto">
-                    <button
-                        onClick={() => setBillingPeriod("monthly")}
-                        className={`px-5 py-1 rounded-full transition ${billingPeriod === "monthly" ? "bg-[#13476D] text-white" : "text-[#13476D]"
-                            }`}
-                    >
-                        شهري
-                    </button>
-                    <button
-                        onClick={() => setBillingPeriod("yearly")}
-                        className={`px-5 py-1 rounded-full transition ${billingPeriod === "yearly" ? "bg-[#13476D] text-white" : "text-[#13476D]"
-                            }`}
-                    >
-                        سنوي
-                    </button>
-                </div>
+                    <div className="flex justify-center p-2 my-8 gap-2 text-sm rounded-full border border-[#13476D] w-max mx-auto bg-white shadow-sm">
+                        <button
+                            onClick={() => setBillingPeriod("monthly")}
+                            className={`px-6 py-3 rounded-full transition font-semibold ${billingPeriod === "monthly"
+                                ? "bg-[#13476D] text-white"
+                                : "text-[#13476D]"
+                                }`}
+                        >
+                            شهري
+                        </button>
+                        <button
+                            onClick={() => setBillingPeriod("yearly")}
+                            className={`px-6 py-3 rounded-full transition font-semibold ${billingPeriod === "yearly"
+                                ? "bg-[#13476D] text-white"
+                                : "text-[#13476D]"
+                                }`}
+                        >
+                            سنوي
+                        </button>
+                    </div>
 
-                {/* Packages Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 text-[#13476D]">
-                    {packagesData.map((pkg, idx) => {
-                        const isProfessional = idx === 1; // highlight professional package
-                        const price = billingPeriod === "monthly" ? pkg.priceMonthly : pkg.priceYearly;
-                        const duration = billingPeriod === "monthly" ? pkg.durationMonthly : pkg.durationYearly;
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {packagesData.map((pkg, idx) => {
+                            const isProfessional = idx === 1;
+                            const price = billingPeriod === "monthly" ? pkg.priceMonthly : pkg.priceYearly;
+                            const duration = billingPeriod === "monthly" ? pkg.durationMonthly : pkg.durationYearly;
 
-                        return (
-                            <div
-                                key={idx}
-                                className={`border rounded-md flex flex-col justify-between ${isProfessional
-                                        ? "bg-[#13476D] text-white border-[#13476D] shadow-lg"
-                                        : "bg-white border-gray-200"
-                                    }`}
-                            >
-                                {/* Header */}
-                                <div className={`p-6 text-center ${isProfessional ? "bg-[#0F3653]" : ""} rounded-t-md`}>
-                                    <h3 className="font-bold text-lg mb-2">{pkg.name}</h3>
-                                    <span className="text-4xl font-extrabold">
-                                        {price}
-                                        <span className="text-lg font-normal mr-1">ريال</span>
-                                    </span>
-                                    <p className="text-sm mt-1">{duration} أيام</p>
+                            return (
+                                <div
+                                    key={idx}
+                                    className={`relative group transition-all duration-300 border rounded-2xl p-6 shadow-md flex flex-col justify-between hover:scale-[1.02] ${isProfessional
+                                        ? "bg-[#13476D] text-white border-[#13476D] shadow-xl"
+                                        : "bg-white text-[#13476D] border-gray-200"
+                                        }`}
+                                >
+                                    {isProfessional && (
+                                        <span className="absolute top-3 left-3 bg-white text-[#13476D] text-xs font-bold py-1 px-3 rounded-full shadow-md">
+                                            الأكثر شهرة
+                                        </span>
+                                    )}
 
-                                    <button
-                                        className={`mt-6 px-6 py-2 rounded-md font-medium ${isProfessional
+                                    <div className="text-center">
+                                        <h3 className="font-bold text-xl mb-2">{pkg.name}</h3>
+                                        <div className="text-5xl font-extrabold flex items-center justify-center gap-1">
+                                            {price}
+                                            <span className="text-lg font-normal">ريال</span>
+                                        </div>
+                                        <p className="text-sm mt-1 opacity-80">{duration} أيام</p>
+
+                                        <button
+                                            className={`mt-6 px-6 py-2 w-full rounded-full font-semibold transition-all duration-200 ${isProfessional
                                                 ? "bg-white text-[#13476D] hover:bg-gray-100"
                                                 : "border border-[#13476D] text-[#13476D] hover:bg-[#13476D] hover:text-white"
-                                            }`}
-                                    >
-                                        ابدأ الآن
-                                    </button>
-                                </div>
+                                                }`}
+                                        >
+                                            ابدأ الآن
+                                        </button>
+                                    </div>
 
-                                {/* Features List */}
-                                <div className="p-6 space-y-4">
-                                    {featureDescriptions.map((desc, i) => {
-                                        const available = pkg.features[i];
-                                        return (
-                                            <div
-                                                key={i}
-                                                className="flex items-center gap-3 text-sm leading-relaxed"
-                                            >
+                                    <div className="mt-6 space-y-4">
+                                        {featureDescriptions.map((desc, i) => {
+                                            const available = pkg.features[i];
+                                            return (
                                                 <div
-                                                    className={`p-1 rounded-full border ${available
-                                                            ? `border-${isProfessional ? "white" : "green-500"} bg-${isProfessional ? "white" : "green-500"}`
-                                                            : "border-gray-400"
-                                                        } flex items-center justify-center text-white`}
-                                                    style={{
-                                                        backgroundColor: available
-                                                            ? isProfessional
-                                                                ? "white"
-                                                                : "#10B981" // Tailwind green-500 hex
-                                                            : "transparent",
-                                                        color: available
-                                                            ? isProfessional
-                                                                ? "#13476D"
-                                                                : "white"
-                                                            : "#9CA3AF", // gray-400
-                                                    }}
+                                                    key={i}
+                                                    className="flex items-center gap-3 text-sm leading-relaxed"
                                                 >
-                                                    {available ? (
-                                                        <FiCheck />
-                                                    ) : (
-                                                        <FiX color={isProfessional ? "#fff" : "#9CA3AF"} />
-                                                    )}
+                                                    <div
+                                                        className={`w-6 h-6 flex items-center justify-center rounded-full border text-xs ${available
+                                                            ? isProfessional
+                                                                ? "bg-white text-[#13476D] border-white"
+                                                                : "bg-green-500 text-white border-green-500"
+                                                            : "border-gray-400 text-gray-400"
+                                                            }`}
+                                                    >
+                                                        {available ? <FiCheck /> : <FiX />}
+                                                    </div>
+                                                    <p className={`${available ? "" : "text-gray-400"}`}>{desc}</p>
                                                 </div>
-                                                <p
-                                                    className={`${available
-                                                            ? isProfessional
-                                                                ? "text-white"
-                                                                : "text-[#13476D]"
-                                                            : "text-gray-400"
-                                                        }`}
-                                                >
-                                                    {desc}
-                                                </p>
-                                            </div>
-                                        );
-                                    })}
+                                            );
+                                        })}
+                                    </div>
                                 </div>
-                            </div>
-                        );
-                    })}
+                            );
+                        })}
+                    </div>
                 </div>
-            </div>
-        </WrapperContainer>
+            </WrapperContainer>
+        </div>
     );
 };
 
