@@ -23,17 +23,27 @@ const Navbar: React.FC = () => {
     }
   }, [pathname]);
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 1024;
+
+  const navbarBgClass =
+    isMobile || isScrolled
+      ? 'bg-[#13476D] text-[#FCFCFC]'
+      : 'bg-transparent text-white';
+
   return (
     <div
-      className={`w-full navbar fixed top-0 z-50 transition-colors duration-300 ${isScrolled ? 'bg-[#13476D] text-[#FCFCFC]' : 'bg-transparent text-white'
-        }`}
+      className={`w-full navbar fixed top-0 z-50 transition-colors duration-300 ${navbarBgClass}`}
     >
       <WrapperContainer>
         <div className="flex justify-between items-center p-4">
           <div className="text-2xl font-bold tracking-wide">
             <Link to="/">
               <img
-                src={isScrolled ? '/assets/ERPWhite.png' : '/assets/ErpLoaderLogo.png'}
+                src={
+                  isMobile || isScrolled
+                    ? '/assets/ERPWhite.png'
+                    : '/assets/ErpLoaderLogo.png'
+                }
                 alt="JEC ERP"
                 className="w-20 transition-all duration-300"
               />
@@ -69,7 +79,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {isMobileMenuOpen && (
-          <div className={`lg:hidden px-6 pb-4 text-sm font-medium transition-all duration-300 ${isScrolled ? 'bg-[#13476D] text-white' : 'bg-white text-[#13476D]'}`}>
+          <div className="lg:hidden px-6 pb-4 text-sm font-medium bg-[#13476D] text-white transition-all duration-300">
             <ul className="space-y-3 mt-4">
               <li>
                 <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>الرئيسية</Link>
