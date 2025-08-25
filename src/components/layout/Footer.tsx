@@ -59,7 +59,7 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="ادخل بريدك الالكتروني"
-                className="w-full border border-[#BABABA] rounded px-4 py-2 text-black placeholder:text-sm"
+                className="w-full border border-[#BABABA] rounded px-4 py-2 text-white placeholder:text-sm"
               />
               <button className="bg-[#FCFCFC] text-[#13476D] font-semibold px-4 py-2 rounded w-full">
                 {t('subscribeBtn')}

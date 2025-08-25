@@ -16,7 +16,7 @@ const ContactForm = () => {
                         <form className="w-full flex flex-col h-full">
                             <div className="space-y-5">
                                 <div className="grid grid-cols-2 gap-4">
-                                    <div className="flex flex-col gap-1">
+                                    <div className="flex flex-col gap-1" data-aos="fade-up">
                                         <label className="font-medium text-[#030303]">الاسم الأول</label>
                                         <input
                                             type="text"
@@ -24,7 +24,7 @@ const ContactForm = () => {
                                             className="border border-[#E0E0E0] rounded px-4 py-2 text-sm text-right placeholder-[#BABABA] text-[#030303]"
                                         />
                                     </div>
-                                    <div className="flex flex-col gap-1">
+                                    <div className="flex flex-col gap-1" data-aos="fade-up">
                                         <label className="font-medium text-[#030303]">الاسم الأخير</label>
                                         <input
                                             type="text"
@@ -35,7 +35,7 @@ const ContactForm = () => {
                                 </div>
 
                                 <div className="grid grid-cols-2 gap-4">
-                                    <div className="flex flex-col gap-1">
+                                    <div className="flex flex-col gap-1" data-aos="fade-up">
                                         <label className="font-medium text-[#030303]">البريد الإلكتروني</label>
                                         <input
                                             type="email"
@@ -43,7 +43,7 @@ const ContactForm = () => {
                                             className="border border-[#E0E0E0] rounded px-4 py-2 text-sm text-right placeholder-[#BABABA] text-[#030303]"
                                         />
                                     </div>
-                                    <div className="flex flex-col gap-1">
+                                    <div className="flex flex-col gap-1" data-aos="fade-up">
                                         <label className="font-medium text-[#030303]">رقم الجوال</label>
                                         <input
                                             type="tel"
@@ -53,7 +53,7 @@ const ContactForm = () => {
                                     </div>
                                 </div>
 
-                                <div className="flex flex-col gap-1">
+                                <div className="flex flex-col gap-1" data-aos="fade-up">
                                     <label className="font-medium text-[#030303]">الرسالة</label>
                                     <textarea
                                         placeholder="أدخل رسالتك هنا.."
@@ -62,7 +62,7 @@ const ContactForm = () => {
                                 </div>
                             </div>
 
-                            <div className="flex mt-6">
+                            <div className="flex mt-6 "data-aos="fade-up">
                                 <button
                                     type="submit"
                                     className="bg-[#13476D] text-white px-10 py-2 rounded"

@@ -16,7 +16,7 @@ const Header: React.FC<HeaderProps> = ({
   description,
 }) => {
   return (
-    <div className={`header-wrapper text-2xl ${className} flex flex-col items-center`}>
+    <div data-aos="fade-up" className={`header-wrapper text-2xl ${className} flex flex-col items-center`}>
       <h1 className="text-[#454545] font-medium mb-2">
         {title}
       </h1>

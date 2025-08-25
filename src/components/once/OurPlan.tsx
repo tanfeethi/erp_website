@@ -122,6 +122,8 @@ const OurPlan = () => {
                     {cardData.map((card, index) => (
                         <div
                             key={index}
+                            data-aos="flip-left"
+                            data-aos-delay={index * 100}
                             className="border border-[#E2E2E2] rounded-lg p-6 flex flex-col items-center text-center transition-shadow hover:shadow-md"
                         >
                             <img

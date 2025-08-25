@@ -1,37 +1,48 @@
-import { useState } from "react"
-import WrapperContainer from "../common/WrapperContainer"
-import Header from "../common/Header"
-import { FiPlus, FiMinus } from "react-icons/fi"
+import { useState, useEffect } from "react";
+import WrapperContainer from "../common/WrapperContainer";
+import Header from "../common/Header";
+import { FiPlus, FiMinus } from "react-icons/fi";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const faqData = [
     {
         question: "ما هو نظام JEC ERP؟",
-        answer: "نظام JEC ERP هو حل متكامل لإدارة أعمالك من مكان واحد، يشمل المحاسبة، الموارد البشرية، المبيعات، المشتريات، علاقات العملاء، المشاريع، وغيرها من الأنظمة التشغيلية.",
+        answer:
+            "نظام JEC ERP هو حل متكامل لإدارة أعمالك من مكان واحد، يشمل المحاسبة، الموارد البشرية، المبيعات، المشتريات، علاقات العملاء، المشاريع، وغيرها من الأنظمة التشغيلية.",
     },
     {
         question: "هل يمكنني اختيار الأنظمة التي أحتاجها فقط؟",
-        answer: "نعم، يمكنك تخصيص الأنظمة بحسب احتياجات عملك دون الحاجة إلى استخدام النظام بالكامل.",
+        answer:
+            "نعم، يمكنك تخصيص الأنظمة بحسب احتياجات عملك دون الحاجة إلى استخدام النظام بالكامل.",
     },
     {
         question: "هل يدعم النظام اللغة العربية؟",
-        answer: "نعم، النظام يدعم اللغة العربية بشكل كامل، بما في ذلك الاتجاه من اليمين إلى اليسار.",
+        answer:
+            "نعم، النظام يدعم اللغة العربية بشكل كامل، بما في ذلك الاتجاه من اليمين إلى اليسار.",
     },
     {
         question: "هل أحتاج إلى أجهزة خاصة لتشغيل النظام؟",
-        answer: "لا، النظام يعمل على متصفح الإنترنت العادي دون الحاجة إلى أجهزة خاصة.",
+        answer:
+            "لا، النظام يعمل على متصفح الإنترنت العادي دون الحاجة إلى أجهزة خاصة.",
     },
     {
         question: "كيف أحصل على الدعم الفني؟",
-        answer: "يمكنك التواصل معنا عبر البريد الإلكتروني info@jec.sa أو من خلال نموذج الاتصال وسنقوم بمساعدتك على الفور.",
+        answer:
+            "يمكنك التواصل معنا عبر البريد الإلكتروني info@jec.sa أو من خلال نموذج الاتصال وسنقوم بمساعدتك على الفور.",
     },
-]
+];
 
 const Faqs = () => {
-    const [openIndex, setOpenIndex] = useState(0)
+    const [openIndex, setOpenIndex] = useState(0);
 
     const toggleIndex = (index: number) => {
-        setOpenIndex(index === openIndex ? -1 : index)
-    }
+        setOpenIndex(index === openIndex ? -1 : index);
+    };
+
+    useEffect(() => {
+        AOS.init({ duration: 700 });
+    }, []);
 
     return (
         <WrapperContainer>
@@ -44,11 +55,13 @@ const Faqs = () => {
 
                 <div className="mt-10 space-y-4">
                     {faqData.map((item, index) => {
-                        const isOpen = index === openIndex
+                        const isOpen = index === openIndex;
                         return (
                             <div
                                 key={index}
                                 className="border border-gray-300 rounded-lg overflow-hidden transition-all"
+                                data-aos="fade-up"
+                                data-aos-delay={index * 100}
                             >
                                 <button
                                     className="w-full flex justify-between items-center p-5 text-right text-[#030303] font-medium text-sm md:text-base"
@@ -68,12 +81,12 @@ const Faqs = () => {
                                     </div>
                                 )}
                             </div>
-                        )
+                        );
                     })}
                 </div>
             </div>
         </WrapperContainer>
-    )
-}
+    );
+};
 
 export default Faqs;

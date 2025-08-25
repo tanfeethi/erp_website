@@ -50,12 +50,17 @@ const WhyUs = ({ limit, showMoreButton = false }: WhyUsProps) => {
                     />
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
                         {displayedFeatures.map((feature, index) => (
-                            <FeatureCard
+                            <div
                                 key={index}
-                                icon={feature.icon}
-                                title={feature.title}
-                                description={feature.description}
-                            />
+                                data-aos="flip-left"
+                                data-aos-delay={index * 100}
+                            >
+                                <FeatureCard
+                                    icon={feature.icon}
+                                    title={feature.title}
+                                    description={feature.description}
+                                />
+                            </div>
                         ))}
                     </div>
 

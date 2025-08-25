@@ -164,6 +164,7 @@ const Systems = () => {
                                 <img
                                     src={activeItem.image}
                                     alt={activeItem.title}
+                                    data-aos="fade-up"
                                     width={800}
                                     height={800}
                                     className="rounded-xl object-contain"

@@ -24,12 +24,14 @@ const servicesData = [
 const Services = () => {
     const [currentIndex, setCurrentIndex] = useState(1)
     const [flipping, setFlipping] = useState(false)
+    const [flipDirection, setFlipDirection] = useState<'left' | 'right'>('left')
 
     const getIndex = (offset: number) => {
         return (currentIndex + offset + servicesData.length) % servicesData.length
     }
 
     const triggerFlip = (direction: 'prev' | 'next') => {
+        setFlipDirection(direction === 'next' ? 'left' : 'right')
         setFlipping(true)
 
         setTimeout(() => {
@@ -58,11 +60,7 @@ const Services = () => {
                 />
 
                 <div className="mt-12 flex items-center justify-center gap-6 px-4 flex-wrap">
-                    <div
-                        className="w-[250px] h-[280px] rounded-xl overflow-hidden shadow-md hidden md:flex bg-white items-center justify-center p-4"
-                        data-aos="fade-up"
-                        data-aos-delay={`${leftIndex * 100}`}
-                    >
+                    <div className="w-[250px] h-[280px] rounded-xl overflow-hidden shadow-md hidden md:flex bg-white items-center justify-center p-4">
                         <img
                             src={servicesData[leftIndex].image}
                             alt="Left Mockup"
@@ -71,48 +69,53 @@ const Services = () => {
                     </div>
 
                     <div
-                        className={`w-full max-w-md bg-white rounded-xl shadow-xl p-6 text-center flex flex-col justify-between transition-transform duration-300 transform-style-preserve-3d ${flipping ? 'animate-flip' : ''
-                            }`}
-                        data-aos="flip-left"
-                        data-aos-delay={`${currentIndex * 100}`}
+                        className={`w-full max-w-md bg-white rounded-xl shadow-xl p-6 text-center flex flex-col justify-between transition-transform duration-300`}
                     >
-                        <div className="w-full h-[180px] overflow-hidden flex justify-center mb-4">
-                            <img
-                                src={servicesData[currentIndex].image}
-                                alt="ERP Feature"
-                                className="object-contain h-full transition-opacity duration-200"
-                            />
-                        </div>
+                        <div
+                            className="card-inner"
+                            style={{
+                                transform: flipping
+                                    ? flipDirection === 'left'
+                                        ? 'rotateY(180deg)'
+                                        : 'rotateY(-180deg)'
+                                    : 'rotateY(0deg)',
+                                transition: 'transform 0.3s ease-in-out',
+                                transformStyle: 'preserve-3d',
+                            }}
+                        >
+                            <div className="w-full h-[180px] overflow-hidden flex justify-center mb-4">
+                                <img
+                                    src={servicesData[currentIndex].image}
+                                    alt="ERP Feature"
+                                    className="object-contain h-full transition-opacity duration-200"
+                                />
+                            </div>
 
-                        <h3 className="text-lg font-semibold text-[#030303] mb-2">
-                            {servicesData[currentIndex].title}
-                        </h3>
+                            <h3 className="text-lg font-semibold text-[#030303] mb-2">
+                                {servicesData[currentIndex].title}
+                            </h3>
 
-                        <p className="text-sm text-[#868686] leading-relaxed mb-4">
-                            {servicesData[currentIndex].description}
-                        </p>
-
-                        <div className="flex justify-center gap-4 mt-4">
-                            <button
-                                onClick={() => triggerFlip('prev')}
-                                className="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-full text-[#13476D] hover:bg-gray-100 transition bg-white"
-                            >
-                                <FiArrowRightCircle size={22} />
-                            </button>
-                            <button
-                                onClick={() => triggerFlip('next')}
-                                className="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-full text-white bg-[#13476D] hover:bg-[#0f3a59] transition"
-                            >
-                                <FiArrowLeftCircle size={22} />
-                            </button>
+                            <p className="text-sm text-[#868686] leading-relaxed mb-4">
+                                {servicesData[currentIndex].description}
+                            </p>
+                            <div className="flex justify-center gap-4 mt-4">
+                                <button
+                                    onClick={() => triggerFlip('prev')}
+                                    className="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-full bg-white text-[#13476D] hover:bg-[#13476D] hover:text-white transition"
+                                >
+                                    <FiArrowRightCircle size={22} />
+                                </button>
+                                <button
+                                    onClick={() => triggerFlip('next')}
+                                    className="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-full bg-white text-[#13476D] hover:bg-[#13476D] hover:text-white transition"
+                                >
+                                    <FiArrowLeftCircle size={22} />
+                                </button>
+                            </div>
                         </div>
                     </div>
 
-                    <div
-                        className="w-[250px] h-[280px] rounded-xl overflow-hidden shadow-md hidden md:flex bg-white items-center justify-center p-4"
-                        data-aos="fade-up"
-                        data-aos-delay={`${rightIndex * 100}`}
-                    >
+                    <div className="w-[250px] h-[280px] rounded-xl overflow-hidden shadow-md hidden md:flex bg-white items-center justify-center p-4">
                         <img
                             src={servicesData[rightIndex].image}
                             alt="Right Mockup"
