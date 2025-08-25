@@ -3,7 +3,7 @@ import Header from "../common/Header"
 
 const ContactForm = () => {
     return (
-        <div className="border-b-[#E2E2E2]">
+        <div className="border border-b-[#E2E2E2] mt-12">
             <WrapperContainer>
                 <div className="py-20">
                     <Header

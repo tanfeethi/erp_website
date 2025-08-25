@@ -14,6 +14,7 @@ import icon9 from '/assets/features/icon9.gif'
 import icon10 from '/assets/features/icon10.gif'
 import icon11 from '/assets/features/icon11.gif'
 import icon12 from '/assets/features/icon12.gif'
+import { Link } from 'react-router'
 
 const features = [
     { icon: icon1, title: 'ميزة 1', description: 'وصف الميزة 1' },
@@ -30,28 +31,47 @@ const features = [
     { icon: icon12, title: 'ميزة 12', description: 'وصف الميزة 12' },
 ]
 
-const WhyUs = () => {
+interface WhyUsProps {
+    limit?: number
+    showMoreButton?: boolean
+}
+
+const WhyUs = ({ limit, showMoreButton = false }: WhyUsProps) => {
+    const displayedFeatures = limit ? features.slice(0, limit) : features
+
     return (
-        <WrapperContainer>
-            <div className="py-20">
-                <Header
-                    title="جميع الحلول المعروضة هي اقتراحات من JEC، ويمكن للعميل اختيار الأنظمة التي تتناسب مع طبيعة عمله واحتياجاته التشغيلية."
-                    description="لماذا تختار"
-                    subtitle="JEC ERP?"
-                />
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
-                    {features.map((feature, index) => (
-                        <FeatureCard
-                            key={index}
-                            icon={feature.icon}
-                            title={feature.title}
-                            description={feature.description}
-                        />
-                    ))}
+        <div className='mt-12 border border-t-0 border-b-[#E2E2E2]'>
+            <WrapperContainer>
+                <div className="py-20">
+                    <Header
+                        title="جميع الحلول المعروضة هي اقتراحات من JEC، ويمكن للعميل اختيار الأنظمة التي تتناسب مع طبيعة عمله واحتياجاته التشغيلية."
+                        description="لماذا تختار"
+                        subtitle="JEC ERP?"
+                    />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
+                        {displayedFeatures.map((feature, index) => (
+                            <FeatureCard
+                                key={index}
+                                icon={feature.icon}
+                                title={feature.title}
+                                description={feature.description}
+                            />
+                        ))}
+                    </div>
+
+                    {showMoreButton && (
+                        <Link to="/features">
+                            <div className="flex justify-center mt-8">
+                                <button className="px-4 py-2 text-white bg-[#13476D] rounded hover:bg-[#0f3a59] transition">
+                                    قراءة المزيد
+                                </button>
+                            </div>
+                        </Link>
+                    )}
                 </div>
-            </div>
-        </WrapperContainer>
+            </WrapperContainer>
+        </div>
     )
 }
 
-export default WhyUs;
+export default WhyUs

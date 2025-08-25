@@ -24,7 +24,7 @@ const cardData = [
 
 const OurPlan = () => {
     return (
-        <div className="my-8">
+        <div className="my-8 pb-8">
             <WrapperContainer>
                 <div className="bg-white py-20">
                     <Header

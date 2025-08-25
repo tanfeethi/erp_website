@@ -95,83 +95,85 @@ const Systems = () => {
     const totalPages = Math.ceil(systemData.length / ITEMS_PER_PAGE);
 
     return (
-        <WrapperContainer>
-            <div className="py-20">
-                <Header
-                    title="حلول ذكية تدعم نمو شركتك في مختلف المجالات التشغيلية، من المحاسبة والموارد البشرية إلى علاقات العملاء وإدارة المشاريع، كل ذلك في نظام واحد."
-                    description="أنظمة وحلول متكاملة لإدارة أعمالك من"
-                    subtitle="مكان واحد"
-                />
+        <div className='mt-12'>
+            <WrapperContainer>
+                <div className="py-20">
+                    <Header
+                        title="حلول ذكية تدعم نمو شركتك في مختلف المجالات التشغيلية، من المحاسبة والموارد البشرية إلى علاقات العملاء وإدارة المشاريع، كل ذلك في نظام واحد."
+                        description="أنظمة وحلول متكاملة لإدارة أعمالك من"
+                        subtitle="مكان واحد"
+                    />
 
-                <div className="flex flex-col lg:flex-row gap-6 mt-10 items-start">
-                    <div className="flex-1 space-y-4">
-                        {paginatedData.map((item) => {
-                            const isActive = activeCardId === item.id;
-                            return (
-                                <div
-                                    key={item.id}
-                                    className={`cursor-pointer p-5 bg-white text-right rounded-r-lg shadow-sm border-r-4 transition-all duration-300 ${isActive ? 'border-[#13476D]' : 'border-[#E5E7EB]'
-                                        }`}
-                                    onClick={() => setActiveCardId(item.id)}
+                    <div className="flex flex-col lg:flex-row gap-6 mt-10 items-start">
+                        <div className="flex-1 space-y-4">
+                            {paginatedData.map((item) => {
+                                const isActive = activeCardId === item.id;
+                                return (
+                                    <div
+                                        key={item.id}
+                                        className={`cursor-pointer p-5 bg-white text-right rounded-r-lg shadow-sm border-r-4 transition-all duration-300 ${isActive ? 'border-[#13476D]' : 'border-[#E5E7EB]'
+                                            }`}
+                                        onClick={() => setActiveCardId(item.id)}
+                                    >
+                                        <div className="flex items-start mb-2">
+                                            <span className="text-[#BABABA] font-bold text-sm">
+                                                #{String(item.id).padStart(2, '0')}
+                                            </span>
+                                        </div>
+                                        <div className='space-y-2'>
+                                            <h3
+                                                className={`font-bold text-lg text-[#13476D]`}
+                                            >
+                                                {item.title}
+                                            </h3>
+                                            <p className="text-[#030303] text-sm font-semibold mb-2">
+                                                {item.description}
+                                            </p>
+                                            <ul className="list-disc text-[#030303] text-sm pr-5 space-y-1">
+                                                {item.list.map((point, i) => (
+                                                    <li key={i}>{point}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+
+                            <div className="flex justify-center items-center gap-2 mt-6">
+                                <button
+                                    onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
+                                    disabled={currentPage === 1}
+                                    className="px-3 py-1 text-[#13476D] disabled:opacity-30 cursor-pointer"
                                 >
-                                    <div className="flex items-start mb-2">
-                                        <span className="text-[#BABABA] font-bold text-sm">
-                                            #{String(item.id).padStart(2, '0')}
-                                        </span>
-                                    </div>
-                                    <div className='space-y-2'>
-                                        <h3
-                                            className={`font-bold text-lg text-[#13476D]`}
-                                        >
-                                            {item.title}
-                                        </h3>
-                                        <p className="text-[#030303] text-sm font-semibold mb-2">
-                                            {item.description}
-                                        </p>
-                                        <ul className="list-disc text-[#030303] text-sm pr-5 space-y-1">
-                                            {item.list.map((point, i) => (
-                                                <li key={i}>{point}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </div>
-                            );
-                        })}
-
-                        <div className="flex justify-center items-center gap-2 mt-6">
-                            <button
-                                onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-                                disabled={currentPage === 1}
-                                className="px-3 py-1 text-[#13476D] disabled:opacity-30 cursor-pointer"
-                            >
-                                <GoArrowDown />
-                            </button>
-                            <span className="text-[#13476D] font-bold text-sm p-3 border border-[#13476D] rounded-2xl cursor-pointer">
-                                {currentPage} / {totalPages}
-                            </span>
-                            <button
-                                onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
-                                disabled={currentPage === totalPages}
-                                className="px-3 py-1 text-[#13476D] disabled:opacity-30 cursor-pointer"
-                            >
-                                <GoArrowUp />
-                            </button>
+                                    <GoArrowDown />
+                                </button>
+                                <span className="text-[#13476D] font-bold text-sm p-3 border border-[#13476D] rounded-2xl cursor-pointer">
+                                    {currentPage} / {totalPages}
+                                </span>
+                                <button
+                                    onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
+                                    disabled={currentPage === totalPages}
+                                    className="px-3 py-1 text-[#13476D] disabled:opacity-30 cursor-pointer"
+                                >
+                                    <GoArrowUp />
+                                </button>
+                            </div>
+                        </div>
+                        <div className="flex-1 flex justify-center">
+                            {activeItem && (
+                                <img
+                                    src={activeItem.image}
+                                    alt={activeItem.title}
+                                    width={800}
+                                    height={800}
+                                    className="rounded-xl object-contain"
+                                />
+                            )}
                         </div>
                     </div>
-                    <div className="flex-1 flex justify-center">
-                        {activeItem && (
-                            <img
-                                src={activeItem.image}
-                                alt={activeItem.title}
-                                width={800}
-                                height={800}
-                                className="rounded-xl object-contain"
-                            />
-                        )}
-                    </div>
                 </div>
-            </div>
-        </WrapperContainer>
+            </WrapperContainer>
+        </div>
     );
 };
 

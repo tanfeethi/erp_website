@@ -1,4 +1,5 @@
-import { FaFacebookF, FaLinkedinIn, FaInstagram, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaInstagram, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaFacebook, FaLinkedin } from "react-icons/fa6";
 import { useTranslation } from 'react-i18next';
 import WrapperContainer from '../common/WrapperContainer';
 
@@ -69,7 +70,7 @@ const Footer = () => {
           <div className={`flex flex-wrap items-center gap-4 ${isArabic ? 'text-right' : 'text-left'}`}>
             <p className="text-white">{t('followUs')}</p>
             <div className="flex gap-3">
-              {[FaInstagram, FaLinkedinIn, FaFacebookF].map((Icon, index) => (
+              {[FaInstagram, FaLinkedin, FaFacebook].map((Icon, index) => (
                 <div key={index} className="bg-[#FCFCFC] p-2 rounded border border-gray-300">
                   <Icon className="text-[#13476D]" size={18} />
                 </div>
@@ -81,12 +82,12 @@ const Footer = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center text-xs text-white">
             <div className="flex gap-4 justify-center md:justify-start">
-              <a href="#" className="hover:underline">شروط الاستخدام</a>
-              <a href="#" className="hover:underline">سياسة الخصوصية</a>
+              <a href="#" className="underline">شروط الاستخدام</a>
+              <a href="#" className="underline">سياسة الخصوصية</a>
             </div>
 
             <div className="text-center">
-              © 2025 JEC ERP. {t('rights')}
+              © 2025 JEC ERP. {t('copyright')}
             </div>
 
             <div className="flex justify-center md:justify-end">

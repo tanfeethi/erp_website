@@ -13,7 +13,7 @@ const Sponsors = () => {
     const clientLogos = [adobe, amazon, Card, spotify, zapier, zoom];
 
     return (
-        <div className="border-b-[#E2E2E2]">
+        <div className="border border-t-0 border-b-[#E2E2E2] pb-8">
             <WrapperContainer>
                 <div className="py-20">
                     <Header
