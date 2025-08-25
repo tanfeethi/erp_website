@@ -15,7 +15,7 @@ const packagesData = [
     {
         name: "الباقة الاحترافية",
         priceMonthly: 19,
-        priceYearly: 19 * 12 * 0.9,
+        priceYearly: 19 * 12,
         durationMonthly: 30,
         durationYearly: 30 * 12,
         features: [true, true, true, true],
@@ -23,7 +23,7 @@ const packagesData = [
     {
         name: "الباقة الكاملة",
         priceMonthly: 40,
-        priceYearly: 40 * 12 * 0.9,
+        priceYearly: 40 * 12,
         durationMonthly: 90,
         durationYearly: 90 * 12,
         features: [true, true, true, true],
