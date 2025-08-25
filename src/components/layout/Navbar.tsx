@@ -1,25 +1,27 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router'
-import WrapperContainer from '../common/WrapperContainer'
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router';
+import WrapperContainer from '../common/WrapperContainer';
+import { FiMenu, FiX } from 'react-icons/fi';
 
 const Navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState<boolean>(false)
-  const { pathname } = useLocation()
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroHeight = document.getElementById('hero')?.offsetHeight || 0
-      setIsScrolled(window.scrollY > heroHeight - 80)
-    }
+      const heroHeight = document.getElementById('hero')?.offsetHeight || 0;
+      setIsScrolled(window.scrollY > heroHeight - 80);
+    };
 
     if (pathname === '/') {
-      handleScroll()
-      window.addEventListener('scroll', handleScroll)
-      return () => window.removeEventListener('scroll', handleScroll)
+      handleScroll();
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
     } else {
-      setIsScrolled(true)
+      setIsScrolled(true);
     }
-  }, [pathname])
+  }, [pathname]);
 
   return (
     <div
@@ -50,17 +52,43 @@ const Navbar: React.FC = () => {
             </li>
           </ul>
 
-          <div className="flex-none">
+          <div className="flex items-center gap-4">
             <Link to="/contact-us">
-              <button className="btn btn-outline border px-6 py-2 border-white text-white hover:bg-white hover:text-[#13476D] transition rounded-md">
+              <button className="btn btn-outline border px-6 py-2 border-white text-white hover:bg-white hover:text-[#13476D] transition rounded-md hidden lg:inline-block">
                 تواصل معنا
               </button>
             </Link>
+
+            <button
+              className="lg:hidden text-2xl focus:outline-none"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <FiX /> : <FiMenu />}
+            </button>
           </div>
         </div>
+
+        {isMobileMenuOpen && (
+          <div className={`lg:hidden px-6 pb-4 text-sm font-medium transition-all duration-300 ${isScrolled ? 'bg-[#13476D] text-white' : 'bg-white text-[#13476D]'}`}>
+            <ul className="space-y-3 mt-4">
+              <li>
+                <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>الرئيسية</Link>
+              </li>
+              <li>
+                <Link to="/systems" onClick={() => setIsMobileMenuOpen(false)}>الأنظمة والحلول</Link>
+              </li>
+              <li>
+                <Link to="/features" onClick={() => setIsMobileMenuOpen(false)}>المميزات</Link>
+              </li>
+              <li>
+                <Link to="/contact-us" onClick={() => setIsMobileMenuOpen(false)}>تواصل معنا</Link>
+              </li>
+            </ul>
+          </div>
+        )}
       </WrapperContainer>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
