@@ -72,7 +72,7 @@ const ContactForm = () => {
                             </div>
                         </form>
 
-                        <div className="relative w-full h-[700px] rounded-lg overflow-hidden">
+                        <div className="relative w-full h-[600px] rounded-lg overflow-hidden">
                             <img
                                 src="/assets/contact/contactImg.jpg"
                                 alt="Contact"

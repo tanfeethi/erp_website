@@ -124,15 +124,15 @@ const OurPlan = () => {
                             key={index}
                             data-aos="flip-left"
                             data-aos-delay={index * 100}
-                            className="border border-[#E2E2E2] rounded-lg p-6 flex flex-col items-center text-center transition-shadow hover:shadow-md"
+                            className="border border-[#E2E2E2] rounded-lg px-6 py-2 flex flex-col items-center text-center transition-shadow hover:shadow-md"
                         >
+                            <h3 className="font-semibold text-[#030303] text-base md:text-lg mt-2 mb-2">{card.title}</h3>
+                            <p className="text-[#7A7A7A] text-sm leading-relaxed">{card.description}</p>
                             <img
                                 src={card.image}
                                 alt={card.title}
-                                className="w-full max-w-[250px] object-contain mb-4"
+                                className="w-full h-[300px] mt-8 object-cover rounded-md"
                             />
-                            <h3 className="font-semibold text-[#030303] text-base md:text-lg mb-2">{card.title}</h3>
-                            <p className="text-[#7A7A7A] text-sm leading-relaxed">{card.description}</p>
                         </div>
                     ))}
                 </div>

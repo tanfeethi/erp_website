@@ -49,7 +49,7 @@ const Faqs = () => {
             <div className="py-20">
                 <Header
                     title="إذا لم تجد الإجابة التي تبحث عنها في قسم الأسئلة الشائعة، فريق الدعم لدينا على استعداد دائم لمساعدتك. تواصل معنا عبر البريد الإلكتروني info@jec.sa وسنرد عليك في أسرع وقت ممكن."
-                    description="أسئلتك تهمنا… ودائمًا !"
+                    description="أسئلتك تهمنا… ودائمًا"
                     subtitle="هنا للإجابة"
                 />
 
@@ -67,7 +67,7 @@ const Faqs = () => {
                                     className="w-full flex justify-between items-center p-5 text-right text-[#030303] font-medium text-sm md:text-base"
                                     onClick={() => toggleIndex(index)}
                                 >
-                                    <span>{item.question}</span>
+                                    <span className={isOpen ? 'text-[#13476D] font-bold' : ''}>{item.question}</span>
                                     {isOpen ? (
                                         <FiMinus className="text-[#13476D]" />
                                     ) : (

@@ -29,8 +29,8 @@ const Footer = () => {
               <h3 className="font-bold">{t('quickLinks')}</h3>
               <ul className="space-y-2">
                 <li><Link to="/" className="link link-hover">{t('home')}</Link></li>
+                <li><Link to="/systems" className="link link-hover">{t('systems')}</Link></li>
                 <li><Link to="/features" className="link link-hover">{t('features')}</Link></li>
-                <li><Link to="/systems" className="link link-hover">{t('prices')}</Link></li>
                 <li><Link to="/contact-us" className="link link-hover">{t('contact')}</Link></li>
               </ul>
             </div>
@@ -62,7 +62,7 @@ const Footer = () => {
                 placeholder="ادخل بريدك الالكتروني"
                 className="w-full border border-[#BABABA] rounded px-4 py-2 text-white placeholder:text-sm"
               />
-              <button className="bg-[#FCFCFC] text-[#13476D] font-semibold px-4 py-2 rounded w-full">
+              <button className="bg-[#FCFCFC] text-[#13476D] font-semibold px-4 py-2 rounded w-fit">
                 {t('subscribeBtn')}
               </button>
             </div>
@@ -88,11 +88,11 @@ const Footer = () => {
             </div>
 
             <div className="text-center">
-              © 2025 JEC ERP. {t('copyright')}
+              {t('copyright')} 2025 JEC ERP ©. 
             </div>
 
             <div className="flex justify-center md:justify-end">
-              <img src="/assets/ERPWhite.png" alt="ERPWhite.png" className='w-24 h-14' />
+              <img src="/assets/ERPWhite.png" alt="ERPWhite.png" className='w-20 h-10' />
             </div>
           </div>
         </div>
