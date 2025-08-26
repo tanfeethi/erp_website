@@ -2,6 +2,7 @@ import { FaInstagram, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa
 import { FaFacebook, FaLinkedin } from "react-icons/fa6";
 import { useTranslation } from 'react-i18next';
 import WrapperContainer from '../common/WrapperContainer';
+import { Link } from 'react-router';
 
 const Footer = () => {
   const { t, i18n } = useTranslation('footer');
@@ -27,10 +28,10 @@ const Footer = () => {
             <div className="space-y-4">
               <h3 className="font-bold">{t('quickLinks')}</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="link link-hover">{t('home')}</a></li>
-                <li><a href="#" className="link link-hover">{t('features')}</a></li>
-                <li><a href="#" className="link link-hover">{t('prices')}</a></li>
-                <li><a href="#" className="link link-hover">{t('contact')}</a></li>
+                <li><Link to="/" className="link link-hover">{t('home')}</Link></li>
+                <li><Link to="/features" className="link link-hover">{t('features')}</Link></li>
+                <li><Link to="/systems" className="link link-hover">{t('prices')}</Link></li>
+                <li><Link to="/contact-us" className="link link-hover">{t('contact')}</Link></li>
               </ul>
             </div>
 
