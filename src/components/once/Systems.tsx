@@ -15,7 +15,7 @@ const systemData = [
             'إدارة الفواتير والمركبات',
             'قائمة الدخل، الميزانية، التدفقات النقدية',
         ],
-        image: '/assets/systems/image1.png',
+        image: '/assets/systems/image1.webp',
     },
     {
         id: 2,
@@ -27,7 +27,7 @@ const systemData = [
             'إدارة العمولات',
             'تتبع العملاء المحتملين',
         ],
-        image: '/assets/systems/image2.png',
+        image: '/assets/systems/image2.webp',
     },
     {
         id: 3,
@@ -39,7 +39,7 @@ const systemData = [
             'التوريد والموردين',
             'إدارة الموردين',
         ],
-        image: '/assets/systems/image3.png',
+        image: '/assets/systems/image3.webp',
     },
     {
         id: 4,
@@ -51,7 +51,7 @@ const systemData = [
             'تتبع التكاليف',
             'مراقبة الأداء',
         ],
-        image: '/assets/systems/image4.png',
+        image: '/assets/systems/image4.webp',
     },
     {
         id: 5,
@@ -63,7 +63,7 @@ const systemData = [
             'سجل الرواتب',
             'العقود والوثائق',
         ],
-        image: '/assets/systems/image5.png',
+        image: '/assets/systems/image5.webp',
     },
     {
         id: 6,
@@ -75,7 +75,7 @@ const systemData = [
             'إدارة الشكاوى',
             'تحليلات العملاء',
         ],
-        image: '/assets/systems/image6.png',
+        image: '/assets/systems/image6.webp',
     },
 ];
 

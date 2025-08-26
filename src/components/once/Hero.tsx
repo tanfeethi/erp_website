@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
                 <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-10 lg:gap-20 w-full relative z-10">
                     <div className="flex items-center justify-center w-full lg:w-1/2">
                         <img
-                            src="/assets/home/heroBg.png"
+                            src="/assets/home/heroBg.webp"
                             alt="heroBg"
                             className="w-full"
                         />

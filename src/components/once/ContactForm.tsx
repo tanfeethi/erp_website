@@ -74,7 +74,7 @@ const ContactForm = () => {
 
                         <div className="relative w-full h-[600px] rounded-lg overflow-hidden">
                             <img
-                                src="/assets/contact/contactImg.jpg"
+                                src="/assets/contact/contactImg.webp"
                                 alt="Contact"
                                 className="w-full h-full object-cover"
                             />

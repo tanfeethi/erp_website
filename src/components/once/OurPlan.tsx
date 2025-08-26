@@ -6,19 +6,19 @@ const cardData = [
         title: "متابعة مشاريعك بدكاء و وضوح خطوة بخطوة",
         description:
             "تابع مشاريعك بكل سهولة ووضوح مع تقارير دقيقة وبواجهات تحكم تفاعلية تساعدك على إدارة الوقت والميزانية بكفاءة.",
-        image: "/assets/systems/image1.png",
+        image: "/assets/systems/image1.webp",
     },
     {
         title: "إدارة بيانات فريقك بسهولة",
         description:
             "تصفح ملفات الموظفين، الغيابات، الحضور، والتقارير في أي وقت من مكان واحد.",
-        image: "/assets/systems/image2.png",
+        image: "/assets/systems/image2.webp",
     },
     {
         title: "تابع أداء شركتك لحظة بلحظة",
         description:
             "احصل على رؤية شاملة لبيانات الموظفين، المبيعات، والمشاريع لتتمكن من اتخاذ قرارات دقيقة وسريعة.",
-        image: "/assets/systems/image3.png",
+        image: "/assets/systems/image3.webp",
     },
 ]
 

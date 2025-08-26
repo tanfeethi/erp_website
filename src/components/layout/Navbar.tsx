@@ -41,8 +41,8 @@ const Navbar: React.FC = () => {
               <img
                 src={
                   isMobile || isScrolled
-                    ? '/assets/ERPWhite.png'
-                    : '/assets/ErpLoaderLogo.png'
+                    ? '/assets/ERPWhite.webp'
+                    : '/assets/ErpLoaderLogo.webp'
                 }
                 alt="JEC ERP"
                 className="w-20 transition-all duration-300"

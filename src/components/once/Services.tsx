@@ -7,17 +7,17 @@ const servicesData = [
     {
         title: 'تابع أداء فريقك لحظة بلحظة',
         description: 'احصل على رؤية شاملة للمهام والموظفين لمساعدتك في اتخاذ قرارات دقيقة وسريعة.',
-        image: '/assets/systems/image3.png',
+        image: '/assets/systems/image3.webp',
     },
     {
         title: 'تحكم في العمليات اليومية بسهولة',
         description: 'قم بإدارة الموارد، المبيعات، والمشتريات من لوحة تحكم مركزية وذكية.',
-        image: '/assets/systems/image4.png',
+        image: '/assets/systems/image4.webp',
     },
     {
         title: 'تقارير تفصيلية في متناول يدك',
         description: 'ولد قرارات مدروسة عبر تقارير فورية وشاملة توضح أداء جميع أقسام شركتك.',
-        image: '/assets/systems/image5.png',
+        image: '/assets/systems/image5.webp',
     },
 ]
 

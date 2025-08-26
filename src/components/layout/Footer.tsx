@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <footer
       className="relative text-white text-sm bg-[#081C2B] bg-blend-hard-light bg-opacity-30 bg-cover bg-center py-8"
-      style={{ backgroundImage: 'url(/footer-bg.png)' }}
+      style={{ backgroundImage: 'url(/footer-bg.webp)' }}
     >
       <div className="absolute inset-0 bg-[#081C2B] opacity-30 pointer-events-none z-0"></div>
 
@@ -19,7 +19,7 @@ const Footer = () => {
         <div className="relative z-10 flex flex-col gap-10">
           <div className={`grid grid-cols-1 md:grid-cols-4 gap-8 ${isArabic ? 'text-right' : 'text-left'}`}>
             <div className="space-y-4">
-              <img src="/assets/ERPWhite.png" alt="ERPWhite.png" className='w-24 h-14' />
+              <img src="/assets/ERPWhite.webp" alt="ERPWhite.webp" className='w-24 h-14' />
               <p className="text-sm leading-relaxed">
                 تحكّم في جميع جوانب عملك من مكان واحد، مع نظام إدارة متكامل يوفر لك أدوات متطورة لإدارة الموظفين، متابعة المهام، تتبع الأداء، وإصدار التقارير الذكية، مما يضمن لك الكفاءة، النمو، واستمرارية أعمالك بكل سهولة واحترافية
               </p>
@@ -92,7 +92,7 @@ const Footer = () => {
             </div>
 
             <div className="flex justify-center md:justify-end">
-              <img src="/assets/ERPWhite.png" alt="ERPWhite.png" className='w-20 h-10' />
+              <img src="/assets/ERPWhite.webp" alt="ERPWhite.webp" className='w-20 h-10' />
             </div>
           </div>
         </div>
