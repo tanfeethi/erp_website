@@ -11,7 +11,6 @@ const Systems = lazy(() => import("../pages/Systems_Solutions"));
 const Features = lazy(() => import("../pages/Features"));
 const Contact = lazy(() => import("../pages/ContactUs"));
 
-
 const router = createBrowserRouter([
   {
     path: "/",
