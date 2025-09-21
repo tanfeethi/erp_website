@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router';
-import WrapperContainer from '../common/WrapperContainer';
-import { FiMenu, FiX } from 'react-icons/fi';
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router";
+import WrapperContainer from "../common/WrapperContainer";
+import { FiMenu, FiX } from "react-icons/fi";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
@@ -10,25 +10,25 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroHeight = document.getElementById('hero')?.offsetHeight || 0;
+      const heroHeight = document.getElementById("hero")?.offsetHeight || 0;
       setIsScrolled(window.scrollY > heroHeight - 80);
     };
 
-    if (pathname === '/') {
+    if (pathname === "/") {
       handleScroll();
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
     } else {
       setIsScrolled(true);
     }
   }, [pathname]);
 
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 1024;
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
 
   const navbarBgClass =
     isMobile || isScrolled
-      ? 'bg-[#13476D] text-[#FCFCFC]'
-      : 'bg-transparent text-white';
+      ? "bg-[#13476D] text-[#FCFCFC]"
+      : "bg-transparent text-white";
 
   return (
     <div
@@ -41,8 +41,8 @@ const Navbar: React.FC = () => {
               <img
                 src={
                   isMobile || isScrolled
-                    ? '/assets/ERPWhite.webp'
-                    : '/assets/ErpLoaderLogo.webp'
+                    ? "/assets/ERPWhite.webp"
+                    : "/assets/ErpLoaderLogo.webp"
                 }
                 alt="JEC ERP"
                 className="w-20 transition-all duration-300"
@@ -52,19 +52,25 @@ const Navbar: React.FC = () => {
 
           <ul className="menu menu-horizontal gap-8 hidden lg:flex font-medium text-lg">
             <li>
-              <Link to="/" className="hover:underline">الرئيسية</Link>
+              <Link to="/" className="hover:underline">
+                الرئيسية
+              </Link>
             </li>
             <li>
-              <Link to="/systems" className="hover:underline">الأنظمة والحلول</Link>
+              <Link to="/systems" className="hover:underline">
+                الأنظمة والحلول
+              </Link>
             </li>
             <li>
-              <Link to="/features" className="hover:underline">المميزات</Link>
+              <Link to="/features" className="hover:underline">
+                المميزات
+              </Link>
             </li>
           </ul>
 
           <div className="flex items-center gap-4">
             <Link to="/contact-us">
-              <button className="btn btn-outline border px-6 py-2 border-white text-white hover:bg-white hover:text-[#13476D] transition rounded-md hidden lg:inline-block">
+              <button className="btn btn-outline border px-6 py-2 border-white text-white hover:bg-white hover:text-[#13476D] transition rounded-md hidden lg:inline-block cursor-pointer">
                 تواصل معنا
               </button>
             </Link>
@@ -82,16 +88,27 @@ const Navbar: React.FC = () => {
           <div className="lg:hidden px-6 pb-4 text-sm font-medium bg-[#13476D] text-white transition-all duration-300">
             <ul className="space-y-3 mt-4">
               <li>
-                <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>الرئيسية</Link>
+                <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+                  الرئيسية
+                </Link>
               </li>
               <li>
-                <Link to="/systems" onClick={() => setIsMobileMenuOpen(false)}>الأنظمة والحلول</Link>
+                <Link to="/systems" onClick={() => setIsMobileMenuOpen(false)}>
+                  الأنظمة والحلول
+                </Link>
               </li>
               <li>
-                <Link to="/features" onClick={() => setIsMobileMenuOpen(false)}>المميزات</Link>
+                <Link to="/features" onClick={() => setIsMobileMenuOpen(false)}>
+                  المميزات
+                </Link>
               </li>
               <li>
-                <Link to="/contact-us" onClick={() => setIsMobileMenuOpen(false)}>تواصل معنا</Link>
+                <Link
+                  to="/contact-us"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  تواصل معنا
+                </Link>
               </li>
             </ul>
           </div>
